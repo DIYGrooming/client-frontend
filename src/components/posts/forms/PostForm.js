@@ -26,7 +26,7 @@ import Typography from '@mui/material/Typography';
 
 // {_id, breed, dogSize, username, title, duration, description, steps, image, likes, comments, createdAt}
 
-function PostForm() {
+const PostForm = (({history}) => {
   // Invoke Redux State
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -85,10 +85,10 @@ function PostForm() {
     localStorage.removeItem(stepsTempLocal);
     // set breed back to null
     setSelectedBreed(null);
-    console.log('-- New postData Published! --');
-    console.log('-- newPost: ', newPost);
+    // console.log('-- New postData Published! --');
+    // console.log('-- newPost: ', newPost);
     setLoading(false);
-    navigate('/');
+    history.push('/')
   };
 
   return (
@@ -135,6 +135,6 @@ function PostForm() {
       </BaseLayout>
     </>
   );
-}
+})
 
 export default PostForm;
